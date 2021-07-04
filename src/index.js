@@ -15,8 +15,8 @@ const keyPressed = {
   RIGHT: false,
   UP: false,
 };
-let pY = 0;
-let pX = 0;
+let pY =  600 / 2 - 24;
+let pX =  600 / 2 - 24;
 
 const BORDER_FOR_PLAYER = {
   DOWN: 552,
@@ -116,6 +116,8 @@ img.addEventListener('load', () => {
       cycle = (cycle + 1) % shots;
     }
     ctx.clearRect(0, 0, 600, 600);
+    ctx.fillStyle = 'green';
+    ctx.fillRect(0, 0, 600, 600);
     ctx.drawImage(img, cycle * spriteW, spritePosition * 48, spriteW, spriteH, pX, pY, 48, 48);
   }, 120);
 });
