@@ -19,11 +19,11 @@ let pY = 0;
 let pX = 0;
 
 const BORDER_FOR_PLAYER = {
-    DOWN: 552,
-    LEFT: 0,
-    RIGHT: 552,
-    UP: 0,
-}
+  DOWN: 552,
+  LEFT: 0,
+  RIGHT: 552,
+  UP: 0,
+};
 
 function keyDownHandler(evt) {
   switch (evt.key) {
@@ -97,22 +97,22 @@ img.addEventListener('load', () => {
   setInterval(() => {
     if (keyPressed.DOWN) {
       spritePosition = 0;
-      pY = ((pY + 10) < BORDER_FOR_PLAYER.DOWN) ? pY += 10 : BORDER_FOR_PLAYER.DOWN;
+      pY = pY + 10 < BORDER_FOR_PLAYER.DOWN ? (pY += 10) : BORDER_FOR_PLAYER.DOWN;
       cycle = (cycle + 1) % shots;
     }
     if (keyPressed.LEFT) {
       spritePosition = 1;
-      pX = ((pX - 10) > BORDER_FOR_PLAYER.LEFT) ? pX -= 10 : BORDER_FOR_PLAYER.LEFT;
+      pX = pX - 10 > BORDER_FOR_PLAYER.LEFT ? (pX -= 10) : BORDER_FOR_PLAYER.LEFT;
       cycle = (cycle + 1) % shots;
     }
     if (keyPressed.RIGHT) {
       spritePosition = 2;
-      pX = ((pX + 10) < BORDER_FOR_PLAYER.RIGHT) ? pX += 10 : BORDER_FOR_PLAYER.RIGHT;
+      pX = pX + 10 < BORDER_FOR_PLAYER.RIGHT ? (pX += 10) : BORDER_FOR_PLAYER.RIGHT;
       cycle = (cycle + 1) % shots;
     }
     if (keyPressed.UP) {
       spritePosition = 3;
-      pY = ((pY - 10) > BORDER_FOR_PLAYER.UP) ? pY -= 10 : BORDER_FOR_PLAYER.UP;
+      pY = pY - 10 > BORDER_FOR_PLAYER.UP ? (pY -= 10) : BORDER_FOR_PLAYER.UP;
       cycle = (cycle + 1) % shots;
     }
     ctx.clearRect(0, 0, 600, 600);
