@@ -15,8 +15,8 @@ const keyPressed = {
   RIGHT: false,
   UP: false,
 };
-let pY =  600 / 2 - 24;
-let pX =  600 / 2 - 24;
+let pY = 600 / 2 - 24;
+let pX = 600 / 2 - 24;
 
 const BORDER_FOR_PLAYER = {
   DOWN: 552,
