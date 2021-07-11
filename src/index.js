@@ -122,7 +122,7 @@ function walk(timestamp) {
   ctx.drawImage(img, cycle * spriteW, spritePosition * 48, spriteW, spriteH, pX, pY, 48, 48);
 
   window.requestAnimationFrame(walk);
-};
+}
 
 img.addEventListener('load', () => {
   window.requestAnimationFrame(walk);
