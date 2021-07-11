@@ -93,31 +93,37 @@ document.addEventListener('keyup', keyUpHandler);
 const img = document.createElement('img');
 img.src = PlayerWalk;
 
+function walk(timestamp) {
+  console.log('### timestamp: ', timestamp);
+
+  if (keyPressed.DOWN) {
+    spritePosition = 0;
+    pY = pY + 10 < BORDER_FOR_PLAYER.DOWN ? (pY += 10) : BORDER_FOR_PLAYER.DOWN;
+    cycle = (cycle + 1) % shots;
+  }
+  if (keyPressed.LEFT) {
+    spritePosition = 1;
+    pX = pX - 10 > BORDER_FOR_PLAYER.LEFT ? (pX -= 10) : BORDER_FOR_PLAYER.LEFT;
+    cycle = (cycle + 1) % shots;
+  }
+  if (keyPressed.RIGHT) {
+    spritePosition = 2;
+    pX = pX + 10 < BORDER_FOR_PLAYER.RIGHT ? (pX += 10) : BORDER_FOR_PLAYER.RIGHT;
+    cycle = (cycle + 1) % shots;
+  }
+  if (keyPressed.UP) {
+    spritePosition = 3;
+    pY = pY - 10 > BORDER_FOR_PLAYER.UP ? (pY -= 10) : BORDER_FOR_PLAYER.UP;
+    cycle = (cycle + 1) % shots;
+  }
+  ctx.clearRect(0, 0, 600, 600);
+  ctx.fillStyle = 'green';
+  ctx.fillRect(0, 0, 600, 600);
+  ctx.drawImage(img, cycle * spriteW, spritePosition * 48, spriteW, spriteH, pX, pY, 48, 48);
+
+  window.requestAnimationFrame(walk);
+};
+
 img.addEventListener('load', () => {
-  setInterval(() => {
-    if (keyPressed.DOWN) {
-      spritePosition = 0;
-      pY = pY + 10 < BORDER_FOR_PLAYER.DOWN ? (pY += 10) : BORDER_FOR_PLAYER.DOWN;
-      cycle = (cycle + 1) % shots;
-    }
-    if (keyPressed.LEFT) {
-      spritePosition = 1;
-      pX = pX - 10 > BORDER_FOR_PLAYER.LEFT ? (pX -= 10) : BORDER_FOR_PLAYER.LEFT;
-      cycle = (cycle + 1) % shots;
-    }
-    if (keyPressed.RIGHT) {
-      spritePosition = 2;
-      pX = pX + 10 < BORDER_FOR_PLAYER.RIGHT ? (pX += 10) : BORDER_FOR_PLAYER.RIGHT;
-      cycle = (cycle + 1) % shots;
-    }
-    if (keyPressed.UP) {
-      spritePosition = 3;
-      pY = pY - 10 > BORDER_FOR_PLAYER.UP ? (pY -= 10) : BORDER_FOR_PLAYER.UP;
-      cycle = (cycle + 1) % shots;
-    }
-    ctx.clearRect(0, 0, 600, 600);
-    ctx.fillStyle = 'green';
-    ctx.fillRect(0, 0, 600, 600);
-    ctx.drawImage(img, cycle * spriteW, spritePosition * 48, spriteW, spriteH, pX, pY, 48, 48);
-  }, 120);
+  window.requestAnimationFrame(walk);
 });
