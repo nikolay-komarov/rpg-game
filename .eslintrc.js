@@ -15,5 +15,7 @@ module.exports = {
     "max-len": "warn",
     "camelcase": "warn",
     "import/prefer-default-export": "warn",
+    "prefer-destructuring": "warn",
+    "no-plusplus": "warn",
   },
 };
