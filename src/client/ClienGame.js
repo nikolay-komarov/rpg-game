@@ -9,6 +9,7 @@ class ClientGame {
     Object.assign(this, {
       cfg,
       gameObjects,
+      player: null,
     });
 
     this.engine = this.createEngine();
@@ -22,6 +23,10 @@ class ClientGame {
 
   createWorld() {
     return new ClientWorld(this, this.engine, levelCfg);
+  }
+
+  setPlayer(player) {
+    this.player = player;
   }
 
   initEngine() {
