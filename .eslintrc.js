@@ -17,5 +17,6 @@ module.exports = {
     "import/prefer-default-export": "warn",
     "prefer-destructuring": "warn",
     "no-plusplus": "warn",
+    "arrow-body-style": "warn",
   },
 };
